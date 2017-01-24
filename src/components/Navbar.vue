@@ -2,7 +2,7 @@
 		<div class="navbar-box navbar-skin">
 		  <div class="navbar-menu">
 		      <a v-link="{ path: '/' }" class="navbar-item logo" :class="{'active':$route.name !== 'apps'}" title="首页">
-		        Hu
+		        vue
 		      </a>
 		      <a v-link="{ path: '/apps',activeClass: 'active'}" class="navbar-item mobile" title="移动应用">
 		      	<i class="fa fa-mobile"></i>
