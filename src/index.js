@@ -11,15 +11,17 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'jackblog-sass/dist/index.css'
 import 'vue-toast/dist/vue-toast.min.css'
 import './assets/styles/index.css'
+//添加mockjs拦截请求，模拟返回服务器数据
+import './mockTest'
 
 Vue.use(VueRouter)
 Vue.use(VueValidator)
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 
 const router = new VueRouter({
-  history: true,
-  saveScrollPosition: true,
-  suppressTransitionError: true
+    history: true,
+    saveScrollPosition: true,
+    suppressTransitionError: true
 })
 configRouter(router)
 sync(store, router)

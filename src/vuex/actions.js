@@ -24,7 +24,8 @@ export const getIndexImage = ({ dispatch }) => {
         if (!response.ok) {
             return dispatch(types.GET_INDEX_IMG, { indexImg: img })
         }
-        dispatch(types.GET_INDEX_IMG, { indexImg: response.data.img })
+        let json = JSON.parse(response.data)
+        dispatch(types.GET_INDEX_IMG, { indexImg: json.data.img })
     }, response => {
         dispatch(types.GET_INDEX_IMG, { indexImg: img })
     })
@@ -109,7 +110,7 @@ export const getArticleList = ({ dispatch }, options, isAdd) => {
         if (!response.ok) {
             return dispatch(types.GET_ARTICLE_LIST_FAILURE)
         }
-        const json = response.data
+        const json = JSON.parse(response.data)
         const isMore = !(json.data.length < options.itemsPerPage)
         isAdd
             ?
