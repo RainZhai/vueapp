@@ -132,7 +132,7 @@ export const getArticleDetail = ({ dispatch }, id, user) => {
         api.getFrontArticle(id).then(response => {
             if (response.ok) {
                 let isLike = false
-                let article = response.data.data
+                let article = JSON.parse(response.data.data)
                 if (user) {
                     user.likes.map(item => {
                         if (item.toString() === article._id) {
@@ -150,7 +150,8 @@ export const getArticleDetail = ({ dispatch }, id, user) => {
 export const getPrenext = ({ dispatch, state }, id) => {
     api.getPrenext(id, state.options.item).then(response => {
         if (response.ok) {
-            dispatch(types.PRENEXT_ARTICLE, { prenextArticle: response.data.data })
+            var json = JSON.parse(response.data)
+            dispatch(types.PRENEXT_ARTICLE, { prenextArticle: json.data })
         }
     })
 }
